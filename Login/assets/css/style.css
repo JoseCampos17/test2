@@ -1,8 +1,52 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+H1 { 
+  text-align: center;
+}
+
+
+ 
+.item{
+  background: blue;
+  height: 40px;
+  width: 40px
+}
+.container{
+  display: flex;
+  border: 2px;
+  height: 400px;
+  width: 400px;
+  justify-content: center;
+  
+  
+}
+.col-md-4{
+  justify-content: space-evenly;
+}
+.row{
+  justify-content: space-evenly;
+}
+.topcorner{
+  position:absolute;
+  top:10px;
+  right: 10px;
+}
+.item:nth-child(even){
+  background: red;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: 'Balsamiq Sans', cursive;
     text-align: center;
+    background: url('https://s03.s3c.es/imag/_v0/770x420/e/0/6/balon-de-futbol.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
   }
   
   /* Input Forms*/
@@ -23,9 +67,10 @@ body {
     width: 320px;
     margin: 20px auto;
     margin-top: 0;
-    border: 0;
+    border: none;
     border-radius: 3px;
     cursor: pointer;
+    
   }
   input[type="submit"]:hover {
     background-color: #00b8eb;
@@ -43,3 +88,4 @@ body {
     text-decoration: none;
     color: #333;
   }
+  

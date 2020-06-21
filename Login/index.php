@@ -19,18 +19,35 @@
 ?>
 <?php include('partials/header.php')?>
 <?php if(!empty($user)): ?>
-      <br> Welcome. <?= $user['email']; ?>
-      <br>You are Successfully Logged In
-      <a href="logout.php">
-        Logout
-      </a>
-    <?php else: ?>
+  <div style="text-align :center">
+        <br> Welcome. <?= $user['email']; ?>
+        <br>
+        <script language="javascript">
+            alert('You are Successfully Logged In');
+        </script>
 
-    <h1>Please login or signup</h1>
+        <br>
+        
+        To disconnect here
+        <a href="logout.php">
+          Logout
+        </a>
+        <br>
+        <br>
+        <button type="button" class="btn btn-light"><a href="Inicio.php">Continuar</a></button>
+      <?php else: ?>
 
-    <a href="login.php">Login</a> or
-    <a href="signup.php">SignUp</a>
+
+      <h1>Please login or signup</h1>
+      <div style="text-align :center">
+      <button type="button" class="btn btn-light"><a href="login.php">Login</a></button>
+      Or
+      <button type="button" class="btn btn-light"><a href="signup.php">SignUp</a></button>
+        
+      </div>  
+
+   </div>
 <?php endif; ?>
-    
-</body>
-</html>
+<!-- bootstrap-->
+
+<?php include('partials/footer.php'); ?>

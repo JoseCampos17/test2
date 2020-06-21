@@ -4,42 +4,50 @@
 
     session_start();
     if(isset($_SESSION['user_id'])){
-        
-        
     }
-    
-    
-    include('partials/header.php'); include('database.php');
-    
-    if(!empty($_POST['email']) && !empty($_POST['password'])){
-        $records =$conn->prepare('SELECT id, email, password FROM users
-        WHERE email = :email');
-        $records->bindParam(':email', $_POST['email']);
-        $records->execute();
-        $results = $records->fetch(PDO::FETCH_ASSOC);
-
-        $message = '';
-
-        if (count($results) > 0  && password_verify($_POST['password'], $results['password'])) {
-           $_SESSION['user_id'] = $results['id'];
-           header("Location: /Login");    
-        } else {
-            $message = 'Sorry, those credentials do no match';
-        }
-    }
+    include('partials/header.php'); include('database.php');include('insert/insert.php')
     ?>
 
-    <h1>Login</h1>
-    <span>or <a href="signup.php">SignUp</a></span>
+    <H1> Login </H1>
+    
+    <div style="text-align :center">
+    
 
     <?php if (!empty($message)): ?>
-        <p><?= $message?> </p>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><p><?= $message?> </p></strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        
+      
     <?php endif ?>
-
-    <form action="login.php" method="POST">
-      <input name="email" type="text" placeholder="Enter your email">
-      <input name="password" type="password" placeholder="Enter your Password">
-      <input type="submit" value="Submit">
-    </form>
-  </body>
-</html>
+    </div>
+    <div style="text-align :center">
+      <div class="container">
+        <div class="row">
+          <div class="cold-md-4">
+            
+            <form action="login.php" method="POST">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="email" type="text" placeholder="Enter your email">
+              </div>
+              <div class="form-group">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <input name="password" type="password" placeholder="Enter your Password">
+              </div>
+              
+              <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+          </div> 
+        </div>
+      </div>
+      <button type="button" class="btn btn-light"><a href="signup.php">SignUp</a></button>
+   </div>
+      
+      </div>
+    
+    </div>
+<?php include('partials/footer.php'); ?>
